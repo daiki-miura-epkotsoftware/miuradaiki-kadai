@@ -16,7 +16,7 @@ function(){
 	//  →serialize()の内容は、cs1=custom1&cs2=custom2
 	$.ajax({	
 		url:"http://localhost/api/ver", // 通信先のURL
-		type:"POST",		// 使用するHTTPメソッド
+		type:"GET",		// 使用するHTTPメソッド
 		data:$("#form1").serialize(), // 送信するデータ
 		dataType:"json", // 応答のデータの種類 
 						// (xml/html/script/json/jsonp/text)
