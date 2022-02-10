@@ -15,7 +15,7 @@ function(){
 	//  20行目のdataは、フォームの内容をserialize()している
 	//  →serialize()の内容は、cs1=custom1&cs2=custom2
 	$.ajax({	
-		url:"http://localhost/api/ver", // 通信先のURL
+		url:"http://localhost/api/ver", // 通信先のURL"http://localhost/api/ver"
 		type:"GET",		// 使用するHTTPメソッド
 		data:$("#form1").serialize(), // 送信するデータ
 		dataType:"json", // 応答のデータの種類 
@@ -31,7 +31,7 @@ function(){
 				$("#span2").text(textStatus); //例：success
 
 				// 3. キーを指定して値を表示 
-				$("#span4").text(data1["form"]["cs1"]);
+				$("#span4").text(data1["version"]);
 
 				// 4. JavaScriptオブジェクトをJSONに変換
 				var data2 = JSON.stringify(data1);
@@ -40,7 +40,7 @@ function(){
 				// 5.JSONをJavaScriptオブジェクトにし、
 				// キーを指定して値(httpbin.org)を表示
 				var data3 = JSON.parse(data2);
-				$("#span5").text(data3["headers"]["Host"]);
+				$("#span5").text(data3["min_version"]);
 
 		// 6. failは、通信に失敗した時に実行される
 		}).fail(function(jqXHR, textStatus, errorThrown ) {
@@ -69,10 +69,10 @@ function(){
 
 <form id="form1">
 <input type="button" id="button1" value="ボタン1">
-<p>テキストボックス１</p>
-<input type="text" name="cs1" value="custom1" maxlength="10">
-<p>テキストボックス２</p>
-<input type="text" name="cs2" value="custom2" maxlength="10">
+<p>バージョン</p>
+<input type="text" name="version" value="version" maxlength="10">
+<p>初期バージョン</p>
+<input type="text" name="min_version" value="min_version" maxlength="10">
 </form>
 </body>
 </html>
